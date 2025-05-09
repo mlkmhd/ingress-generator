@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-creator
+  labels:
+    app: ingress-creator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-creator
+  template:
+    metadata:
+      labels:
+        app: ingress-creator
+    spec:
+      serviceAccountName: ingress-creator
+      containers:
+        - name: ingress-creator
+          image: mlkbenjamin/ingress-generator:0.1.0
+          imagePullPolicy: Always
+          env:
+            - name: CLUSTER_NAME
+              value: "cluster-1"
+            - name: DATACENTER_NAME
+              value: "datacenter-1"
