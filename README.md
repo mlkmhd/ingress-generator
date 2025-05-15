@@ -5,6 +5,8 @@ This project is used to automatically generate ingress resources based on your a
 Let's suppose you have a Kubernetes service at `myservice.mynamespace:8080`. After deploying your service to Kubernetes, this tool will generate an ingress like `myservice-8080.myservice.cluster-X.datacenter-Y.internal`, allowing you to access the service. It will also automatically delete the ingress when you delete the service.
 ## Installation
 ```bash
+$ git clone https://github.com/mlkmhd/ingress-generator
+$ cd ingress-generator
 $ kubectl apply -f ./rbac.yaml
 $ kubectl apply -f ./deployment.yaml
 ```
